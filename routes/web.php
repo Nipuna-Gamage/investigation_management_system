@@ -11,6 +11,7 @@ use App\Http\Controllers\ReceivingTypeController;
 use App\Http\Controllers\CommonIssueController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HelpController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -37,3 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts');
     Route::get('/help', [HelpController::class, 'index'])->name('help');
 });
+
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
