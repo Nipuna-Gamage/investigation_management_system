@@ -15,11 +15,11 @@
             <div class="login-card">
                 <h2>Welcome back!</h2>
                 <p>Enter your Credentials to access your account</p>
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login.submit') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
+                        <label for="user_name">Username</label>
+                        <input type="text" id="user_name" name="user_name" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
