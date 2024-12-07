@@ -30,8 +30,8 @@
             <li class="has-submenu {{ request()->routeIs('settings.*') ? 'active' : '' }}">
                 <a href="#"><i class="fas fa-cog"></i>Settings</a>
                 <ul class="submenu">
-                    <li><a href="{{ route('settings.officers.create') }}"><i class="fas fa-user-plus"></i>Add Officers</a></li>
-                    <li><a href="{{ route('settings.officers.index') }}"><i class="fas fa-user-edit"></i>Edit Officers</a></li>
+                    <li><a href="{{ route('settings.add-officers') }}"><i class="fas fa-user-plus"></i>Add Officers</a></li>
+                    <li><a href="{{ route('settings.edit-officers') }}"><i class="fas fa-user-edit"></i>Edit Officers</a></li>
                     <li><a href="{{ route('settings.receiving-types') }}"><i class="fas fa-list-alt"></i>Receiving Types</a></li>
                     <li><a href="{{ route('settings.common-issues') }}"><i class="fas fa-exclamation-circle"></i>Common Issues</a></li>
                 </ul>

@@ -5,10 +5,10 @@
     </div>
     <div class="user-profile">
         <div class="avatar-circle">
-            <span class="avatar-letter">D</span>
+            <span class="avatar-letter">N</span>
         </div>
         <div class="user-info">
-            <h3>Didula</h3>
+            <h3>Nipun</h3>
             <span>Admin</span>
         </div>
     </div>

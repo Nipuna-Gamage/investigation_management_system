@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OfficerController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -35,6 +36,12 @@ Route::get('/reports', function () {
 // Settings routes
 Route::prefix('settings')->name('settings.')->group(function () {
     Route::resource('officers', OfficerController::class);
+    Route::get('/add-officers', function () {
+        return view('settings.add-officers');
+    })->name('add-officers');
+    Route::get('/edit-officers', function () {
+        return view('settings.edit-officers');
+    })->name('edit-officers');
     Route::get('/receiving-types', function () {
         return view('settings.receiving-types');
     })->name('receiving-types');

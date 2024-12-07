@@ -11,7 +11,7 @@
                     <img src="creator-avatar.jpg" alt="Creator Photo" class="creator-avatar">
                     <div class="creator-details">
                         <h3>Created By</h3>
-                        <p class="creator-name">Didula Induwara</p>
+                        <p class="creator-name">Nipuna & Didula</p>
                         <p class="creator-title">Software Engineer</p>    
                     </div>
                 </div>

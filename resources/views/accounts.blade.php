@@ -7,7 +7,7 @@
         <div class="user-details">
             <div class="detail-item">
                 <label>Name:</label>
-                <span id="userName">Didula</span>
+                <span id="userName">Nipuna</span>
             </div>
             <div class="detail-item">
                 <label>Email:</label>
