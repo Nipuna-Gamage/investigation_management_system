@@ -22,10 +22,6 @@
                 <a href="{{ route('reports') }}"><i class="fas fa-chart-bar"></i>Reports</a>
             </li>
         </ul>
-    </div>
-
-    <div class="menu-section">
-        <h3>OTHERS</h3>
         <ul>
             <li class="has-submenu {{ request()->routeIs('settings.*') ? 'active' : '' }}">
                 <a href="#"><i class="fas fa-cog"></i>Settings</a>
