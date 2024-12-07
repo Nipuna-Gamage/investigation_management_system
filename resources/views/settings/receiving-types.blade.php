@@ -5,7 +5,7 @@
     <div class="receiving-types-container">
         <div class="page-header">
             <h2>Receiving Types</h2>
-            <a href="add-new.html" class="btn btn-add" id="addNewType">
+            <a href="{{ route('settings.receiving-types-add') }}" class="btn btn-add" id="addNewType">
                 <i class="fas fa-plus"></i> Add new
             </a>
         </div>

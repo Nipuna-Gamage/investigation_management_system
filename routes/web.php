@@ -48,6 +48,9 @@ Route::prefix('settings')->name('settings.')->group(function () {
     Route::get('/common-issues', function () {
         return view('settings.common-issues');
     })->name('common-issues');
+    Route::get('/receiving-types-add', function () {
+        return view('settings.receiving-types-add');
+    })->name('receiving-types-add');
 });
 
 // Account routes
