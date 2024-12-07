@@ -5,7 +5,7 @@
     <div class="receiving-types-container">
         <div class="page-header">
             <h2>Common Issues</h2>
-            <a href="add-new.html" class="btn btn-add" id="addNewIssue">
+            <a href="{{ route('settings.common-issues-add') }}" class="btn btn-add" id="addNewIssue">
                 <i class="fas fa-plus"></i> Add new
             </a>
         </div>
