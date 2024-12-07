@@ -8,7 +8,7 @@
             <span class="avatar-letter">N</span>
         </div>
         <div class="user-info">
-            <h3>Nipun</h3>
+            <h3>Nipuna</h3>
             <span>Admin</span>
         </div>
     </div>
