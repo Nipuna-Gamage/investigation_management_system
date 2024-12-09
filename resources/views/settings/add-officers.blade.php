@@ -59,6 +59,8 @@
                             <label for="staffLevel">Staff Level</label>
                             <select id="staffLevel">
                                 <option value="no">No</option>
+                                <option value="yes">Yes</option>
+
                                 <!-- Add other options as needed -->
                             </select>
                         </div>

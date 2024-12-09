@@ -52,7 +52,7 @@
                                 @foreach($userGroups as $userGroup)
                                 <option value="{{ $userGroup->group_id }}">{{ $userGroup->group_name }}</option>
                                 @endforeach
-                                
+
                                 </select>
                             </div>
 
@@ -60,6 +60,7 @@
                                 <label for="staffLevel">Staff Level<span class="required">*</span></label>
                                 <select id="staffLevel" required>
                                     <option value="no">No</option>
+                                    <option value="yes">Yes</option>
                                     <!-- Add other options as needed -->
                                 </select>
                             </div>
