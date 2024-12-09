@@ -17,7 +17,9 @@
                 <label for="receiveType">Receive Type</label>
                 <select id="receiveType" required>
                     <option value="">Select Receive Type</option>
-                    <option value="type1">ඍජුව</option>
+                    @foreach($receiveTypes as $receiveType)
+                        <option value="{{ $receiveType->inst_uuid }}">{{ $receiveType->institute_name }}</option>
+                    @endforeach
                 </select>
             </div>
 

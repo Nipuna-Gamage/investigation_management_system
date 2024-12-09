@@ -40,9 +40,7 @@ Route::prefix('settings')->name('settings.')->group(function () {
 
     Route::get('/edit-officers', [InvestigationController::class, 'editOfficers'])->name('edit-officers');
 
-    Route::get('/receiving-types', function () {
-        return view('settings.receiving-types');
-    })->name('receiving-types');
+    Route::get('/receiving-types', [InvestigationController::class, 'showReceivingTypes'])->name('receiving-types');
 
     Route::get('/common-issues', function () {
         return view('settings.common-issues');
