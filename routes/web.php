@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OfficerController;
+use App\Http\Controllers\InvestigationController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -16,9 +17,7 @@ Route::prefix('cases')->name('cases.')->group(function () {
 
 // Investigation routes
 Route::prefix('investigations')->name('investigations.')->group(function () {
-    Route::get('/create', function () {
-        return view('investigations.create');
-    })->name('create');
+    Route::get('/create', [InvestigationController::class, 'create'])->name('create');
 });
 
 // Person routes

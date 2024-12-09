@@ -55,6 +55,9 @@
                 <label for="district">District</label>
                 <select id="district" required>
                     <option value="">Select District</option>
+                    @foreach($districts as $district)
+                        <option value="{{ $district->dist_uuid }}">{{ $district->dist_name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -62,6 +65,9 @@
                 <label for="divSecretariat">Divisional Secretariat</label>
                 <select id="divSecretariat" required>
                     <option value="">Select Secretariat</option>
+                    @foreach($divisionals as $divisional)
+                        <option value="{{ $divisional->dsd_uuid }}">{{ $divisional->dsd_name }}</option>
+                    @endforeach
                 </select>
             </div>
 
