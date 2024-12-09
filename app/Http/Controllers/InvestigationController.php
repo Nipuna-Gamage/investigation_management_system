@@ -19,4 +19,16 @@ class InvestigationController extends Controller
         // Pass both districts and divisionals to the view
         return view('investigations.create', compact('districts', 'divisionals'));
     }
+
+    public function addOfficers()
+    {
+        $userGroups = DB::table('sys_user_groups')->select('group_id', 'group_name')->get();
+        return view('settings.add-officers', compact('userGroups'));
+    }
+
+    public function editOfficers()
+    {
+        $userGroups = DB::table('sys_user_groups')->select('group_id', 'group_name')->get();
+        return view('settings.edit-officers', compact('userGroups'));
+    }
 }

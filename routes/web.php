@@ -35,24 +35,27 @@ Route::get('/reports', function () {
 // Settings routes
 Route::prefix('settings')->name('settings.')->group(function () {
     Route::resource('officers', OfficerController::class);
-    Route::get('/add-officers', function () {
-        return view('settings.add-officers');
-    })->name('add-officers');
-    Route::get('/edit-officers', function () {
-        return view('settings.edit-officers');
-    })->name('edit-officers');
+    
+    Route::get('/add-officers', [InvestigationController::class, 'addOfficers'])->name('add-officers');
+
+    Route::get('/edit-officers', [InvestigationController::class, 'editOfficers'])->name('edit-officers');
+
     Route::get('/receiving-types', function () {
         return view('settings.receiving-types');
     })->name('receiving-types');
+
     Route::get('/common-issues', function () {
         return view('settings.common-issues');
     })->name('common-issues');
+
     Route::get('/receiving-types-add', function () {
         return view('settings.receiving-types-add');
     })->name('receiving-types-add');
+
     Route::get('/common-issues-add', function () {
         return view('settings.common-issues-add');
     })->name('common-issues-add');
+
 });
 
 // Account routes

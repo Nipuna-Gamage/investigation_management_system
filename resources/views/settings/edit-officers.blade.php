@@ -49,8 +49,10 @@
                             <div class="form-group">
                                 <label for="groupName">Group Name<span class="required">*</span></label>
                                 <select id="groupName" required>
-                                    <option value="admin">Administrator (Admin)</option>
-                                    <!-- Add other options as needed -->
+                                @foreach($userGroups as $userGroup)
+                                <option value="{{ $userGroup->group_id }}">{{ $userGroup->group_name }}</option>
+                                @endforeach
+                                
                                 </select>
                             </div>
 
