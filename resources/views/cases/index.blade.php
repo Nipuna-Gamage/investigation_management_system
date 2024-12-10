@@ -32,14 +32,7 @@
     <div class="cases-section">
         <div class="cases-header">
             <h2>My Cases</h2>
-            <div class="cases-actions">
-                <button class="btn-export">
-                    <i class="fas fa-download"></i> Export
-                </button>
-                <button class="btn-add">
-                    <i class="fas fa-plus"></i> New Case
-                </button>
-            </div>
+            <h1>.</h1>
         </div>
         
         <div class="cases-table-wrapper">

@@ -17,7 +17,9 @@
                 <label for="receiveType">Receive Type</label>
                 <select id="receiveType" required>
                     <option value="">Select Receive Type</option>
-                    <option value="type1">ඍජුව</option>
+                    @foreach($receiveTypes as $receiveType)
+                        <option value="{{ $receiveType->inst_uuid }}">{{ $receiveType->institute_name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -55,6 +57,9 @@
                 <label for="district">District</label>
                 <select id="district" required>
                     <option value="">Select District</option>
+                    @foreach($districts as $district)
+                        <option value="{{ $district->dist_uuid }}">{{ $district->dist_name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -62,6 +67,9 @@
                 <label for="divSecretariat">Divisional Secretariat</label>
                 <select id="divSecretariat" required>
                     <option value="">Select Secretariat</option>
+                    @foreach($divisionals as $divisional)
+                        <option value="{{ $divisional->dsd_uuid }}">{{ $divisional->dsd_name }}</option>
+                    @endforeach
                 </select>
             </div>
 

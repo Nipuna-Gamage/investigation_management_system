@@ -11,14 +11,11 @@ export function initializeSearchPerson() {
             resultsList.innerHTML = '<div class="loading">Searching...</div>';
             
             try {
-                const response = await fetch(`/api/person/search?query=${searchInput.value}`, {
-                    headers: {
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                });
-
-                const data = await response.json();
+                // Dummy data instead of fetching from API
+                const data = [
+                    { id: 1, name: 'John Doe', status: 'Active', nic: '123456789', address: '123 Main St', date: '2023-01-01' },
+                    { id: 2, name: 'Jane Smith', status: 'Inactive', nic: '987654321', address: '456 Elm St', date: '2023-01-02' }
+                ];
 
                 if (data.length === 0) {
                     resultsList.innerHTML = `
@@ -46,12 +43,6 @@ export function initializeSearchPerson() {
                         <div class="result-meta">
                             <span><i class="fas fa-calendar"></i> ${result.date}</span>
                             <div class="result-actions">
-                                <button class="btn-view" onclick="viewPerson('${result.id}')">
-                                    <i class="fas fa-eye"></i> View
-                                </button>
-                                <button class="btn-edit" onclick="editPerson('${result.id}')">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
                             </div>
                         </div>
                     </div>

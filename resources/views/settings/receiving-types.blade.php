@@ -5,7 +5,7 @@
     <div class="receiving-types-container">
         <div class="page-header">
             <h2>Receiving Types</h2>
-            <a href="add-new.html" class="btn btn-add" id="addNewType">
+            <a href="{{ route('settings.receiving-types-add') }}" class="btn btn-add" id="addNewType">
                 <i class="fas fa-plus"></i> Add new
             </a>
         </div>
@@ -19,17 +19,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1905 මහජන පැමිණිලි</td>
-                        <td>Active</td>
-                        <td><a href="#" class="edit-link">Edit</a></td>
-                    </tr>
-                    <tr>
-                        <td>ඍජුව</td>
-                        <td>Active</td>
-                        <td><a href="#" class="edit-link">Edit</a></td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                    @foreach($institutes as $institute)
+                        <tr>
+                            <td>{{ $institute->institute_name }}</td>
+                            <td>{{ $institute->status }}</td>
+                            <td><a href="#" class="edit-link">Edit</a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -51,7 +47,7 @@
                     <label for="typeStatus">Status</label>
                     <select id="typeStatus">
                         <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        <option value="deactive">De-Active</option>
                     </select>
                 </div>
                 <div class="form-actions">
