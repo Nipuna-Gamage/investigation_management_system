@@ -20,21 +20,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>නොදනු කලා</td>
-                        <td>Active</td>
-                        <td><a href="#" class="edit-link">Edit</a></td>
-                    </tr>
-                    <tr>
-                        <td>වේදිකා හා යොමු කලා</td>
-                        <td>Active</td>
-                        <td><a href="#" class="edit-link">Edit</a></td>
-                    </tr>
-                    <tr>
-                        <td>ප්‍රකාශ ලබාගත් කලා</td>
-                        <td>Active</td>
-                        <td><a href="#" class="edit-link">Edit</a></td>
-                    </tr>
+                    @foreach($comments as $comment)
+                        <tr>
+                            <td>{{ $comment->comment_name }}</td>
+                            <td>{{ $comment->status }}</td>
+                            <td><a href="" class="edit-link">Edit</a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -43,4 +43,10 @@ class InvestigationController extends Controller
         // Pass the institutes to the view
         return view('settings.receiving-types', compact('institutes'));
     }
+
+    public function showCommonIssues()
+    {
+        $comments = DB::table('inv_comment')->select('comm_uuid', 'comment_name', 'status')->get();
+        return view('settings.common-issues', compact('comments'));
+    }
 }
