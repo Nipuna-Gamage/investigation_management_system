@@ -135,9 +135,16 @@ header {
     text-transform: uppercase;
 }
 
+.user-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+}
+
 .user-info h3 {
     font-size: 16px;
     margin: 0;
+    color: #333;
 }
 
 .user-info span {
