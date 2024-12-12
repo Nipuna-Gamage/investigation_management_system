@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\InvestigationController;
+use App\Http\Controllers\ReceivingTypeController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -62,3 +63,5 @@ Route::get('/accounts', function () {
 Route::get('/help', function () {
     return view('help');
 })->name('help');
+
+Route::post('/settings/receiving-types-add', [ReceivingTypeController::class, 'store'])->name('settings.receiving-types.store');

@@ -9,11 +9,13 @@
                         <span class="asterisk">*</span> Fields tag with star are mandatory and MUST be filled.
                     </div>
 
-                    <form class="add-receiving-type-form">
+                    <form class="add-receiving-type-form" action="{{ route('settings.receiving-types.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <label for="receivingType">Receiving Type<span class="required">*</span></label>
+                            <label for="receivingType">Receiving Type<span class=""></span></label>
                             <textarea 
                                 id="receivingType" 
+                                name="receivingType" 
                                 rows="4" 
                                 required
                                 placeholder="Enter receiving type"
@@ -27,7 +29,7 @@
                                     <input 
                                         type="radio" 
                                         name="status" 
-                                        value="active" 
+                                        value="Active" 
                                         checked
                                     >
                                     Active
@@ -36,7 +38,7 @@
                                     <input 
                                         type="radio" 
                                         name="status" 
-                                        value="deactive"
+                                        value="De-active"
                                     >
                                     De-Active
                                 </label>
@@ -44,7 +46,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="button" class="btn btn-cancel">Cancel</button>
+                            <a href="{{ route('settings.receiving-types') }}" class="btn btn-cancel">Cancel</a>
                             <button type="reset" class="btn btn-reset">Reset</button>
                             <button type="submit" class="btn btn-save">Save</button>
                         </div>
