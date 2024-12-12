@@ -115,7 +115,7 @@ header {
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .avatar-circle {
@@ -1141,4 +1141,27 @@ footer {
 
 .btn-save:hover {
     opacity: 0.9;
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #f8f9fa;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-logout i {
+    font-size: 14px;
 }
