@@ -5,6 +5,8 @@ use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\InvestigationController;
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Controllers\ReceivingTypeController;
+
 // Redirect root to login
 Route::get('/', function () {
     return redirect()->route('login');
@@ -50,7 +52,6 @@ Route::middleware('auth')->group(function () {
 
     // Settings routes
     Route::prefix('settings')->name('settings.')->group(function () {
-        Route::resource('officers', OfficerController::class);
         
         Route::get('/add-officers', [InvestigationController::class, 'addOfficers'])->name('add-officers');
 
