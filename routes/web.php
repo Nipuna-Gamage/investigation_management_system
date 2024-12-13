@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvestigationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ReceivingTypeController;
+use App\Http\Controllers\CommonIssuesController;
 
 // Redirect root to login
 Route::get('/', function () {
@@ -70,6 +71,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::post('/settings/receiving-types-add', [ReceivingTypeController::class, 'store'])->name('settings.receiving-types.store');
+
+    Route::post('/settings/common-issues', [CommonIssuesController::class, 'store'])->name('settings.common-issues.store');
 
     // Account routes
     Route::get('/accounts', function () {
