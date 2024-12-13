@@ -74,6 +74,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/settings/common-issues', [CommonIssuesController::class, 'store'])->name('settings.common-issues.store');
 
+    Route::put('/settings/receiving-types', [ReceivingTypeController::class, 'update'])->name('settings.receiving-types');
+
     // Account routes
     Route::get('/accounts', function () {
         return view('accounts');

@@ -30,4 +30,8 @@ class CreateInvInstituteTable extends Migration
             $table->primary(['id', 'inst_uuid']);
         });
     }
+    public function down()
+    {
+        Schema::dropIfExists('inv_institute');
+    }
 }
