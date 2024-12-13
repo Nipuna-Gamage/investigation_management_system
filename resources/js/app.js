@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const status = this.getAttribute('data-status');
             const id = this.getAttribute('data-id');
 
+            // Populate the modal inputs with the data
             typeNameInput.value = name;
             typeStatusSelect.value = status;
             typeIdInput.value = id;
 
-            typeModal.classList.add('active'); // Show the modal
+            // Show the modal
+            typeModal.classList.add('active');
         });
     });
 

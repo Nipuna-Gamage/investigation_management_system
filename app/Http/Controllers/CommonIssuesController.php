@@ -28,4 +28,21 @@ class CommonIssuesController extends Controller
 
         return redirect()->route('settings.common-issues')->with('success', 'Comment added successfully.');
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'receivingType' => 'required|string|max:255',
+            'status' => 'required|in:Active,De-active',
+            'typeId' => 'required|uuid',
+        ]);
+
+        DB::table('inv_comment')->where('comm_uuid', $request->typeId)->update([
+            'comment_name' => $request->receivingType,
+            'status' => $request->status,
+            'updated_on' => now(),
+        ]);
+
+        return redirect()->route('settings.common-issues')->with('success', 'Common issue updated successfully.');
+    }
 } 
