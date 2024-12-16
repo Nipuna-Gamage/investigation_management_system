@@ -3,20 +3,22 @@
 @section('content')
 <div class="content">
                 <div class="add-receiving-type-container">
-                    <h2>Receiving Types</h2>
+                    <h2>Common Issues</h2>
                     
                     <div class="mandatory-note">
-                        <span class="asterisk">*</span> Fields tag with star are mandatory and MUST be filled.
+                        <span class="asterisk">*</span> Fields tagged with a star are mandatory and MUST be filled.
                     </div>
 
-                    <form class="add-receiving-type-form">
+                    <form class="add-receiving-type-form" action="{{ route('settings.common-issues.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <label for="receivingType">Receiving Type<span class="required">*</span></label>
+                            <label for="commentName">Comment Name<span class="required">*</span></label>
                             <textarea 
-                                id="receivingType" 
+                                id="commentName" 
+                                name="comment_name" 
                                 rows="4" 
                                 required
-                                placeholder="Enter receiving type"
+                                placeholder="Enter comment"
                             ></textarea>
                         </div>
 
@@ -27,7 +29,7 @@
                                     <input 
                                         type="radio" 
                                         name="status" 
-                                        value="active" 
+                                        value="Active" 
                                         checked
                                     >
                                     Active
@@ -36,7 +38,7 @@
                                     <input 
                                         type="radio" 
                                         name="status" 
-                                        value="deactive"
+                                        value="De-active"
                                     >
                                     De-Active
                                 </label>
@@ -44,7 +46,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="button" class="btn btn-cancel">Cancel</button>
+                            <a href="{{ route('settings.common-issues') }}" class="btn btn-cancel">Cancel</a>
                             <button type="reset" class="btn btn-reset">Reset</button>
                             <button type="submit" class="btn btn-save">Save</button>
                         </div>
