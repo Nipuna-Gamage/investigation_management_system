@@ -9,45 +9,46 @@
                         <span class="asterisk">*</span> Fields tag with star are mandatory and MUST be filled.
                     </div>
 
-                    <form class="registration-form">
+                    <form class="registration-form" action="{{ route('settings.store-officer') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="firstName">First Name<span class="required">*</span></label>
-                            <input type="text" id="firstName" required>
+                            <input type="text" id="firstName" name="firstName" required>
                         </div>
 
                         <div class="form-group">
                             <label for="initials">Initials<span class="required">*</span></label>
-                            <input type="text" id="initials" required>
+                            <input type="text" id="initials" name="initials" required>
                         </div>
 
                         <div class="form-group">
                             <label for="userName">User Name<span class="required">*</span></label>
-                            <input type="text" id="userName" required>
+                            <input type="text" id="userName" name="userName" required>
                         </div>
 
                         <div class="form-group">
                             <label for="password">Password<span class="required">*</span></label>
-                            <input type="password" id="password" required>
+                            <input type="password" id="password" name="password" required>
                         </div>
 
                         <div class="form-group">
                             <label for="confirmPassword">Confirm Password<span class="required">*</span></label>
-                            <input type="password" id="confirmPassword" required>
+                            <input type="password" id="confirmPassword" name="password_confirmation" required>
                         </div>
 
                         <div class="form-group">
                             <label for="subjectCode">Subject code<span class="required">*</span></label>
-                            <input type="text" id="subjectCode" required>
+                            <input type="text" id="subjectCode" name="subjectCode" required>
                         </div>
 
                         <div class="form-group">
                             <label for="post">Post</label>
-                            <input type="text" id="post">
+                            <input type="text" id="post" name="post">
                         </div>
 
                         <div class="form-group">
                             <label for="groupName">Group Name<span class="required">*</span></label>
-                            <select id="groupName" required>
+                            <select id="groupName" name="groupName" required>
                                 @foreach($userGroups as $userGroup)
                                 <option value="{{ $userGroup->group_id }}">{{ $userGroup->group_name }}</option>
                                 @endforeach
@@ -57,7 +58,7 @@
 
                         <div class="form-group">
                             <label for="staffLevel">Staff Level</label>
-                            <select id="staffLevel">
+                            <select id="staffLevel" name="staffLevel">
                                 <option value="no">No</option>
                                 <option value="yes">Yes</option>
 
@@ -67,12 +68,12 @@
 
                         <div class="form-group">
                             <label for="phone">Phone<span class="required">*</span></label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
 
                         <div class="form-group checkbox-group">
                             <label>
-                                <input type="checkbox" id="notifySMS">
+                                <input type="checkbox" id="notifySMS" name="notifySMS">
                                 Notify by SMS
                             </label>
                         </div>

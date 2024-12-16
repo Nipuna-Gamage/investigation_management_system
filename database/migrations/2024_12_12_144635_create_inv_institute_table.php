@@ -13,6 +13,11 @@ class CreateInvInstituteTable extends Migration
      */
     public function up()
     {
+        // Skip creation if table already exists
+        if (Schema::hasTable('inv_institute')) {
+            return;
+        }
+
         Schema::create('inv_institute', function (Blueprint $table) {
             $table->mediumIncrements('id');
             $table->string('inst_uuid', 36);

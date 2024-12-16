@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class InvestigationController extends Controller
 {
@@ -48,5 +50,39 @@ class InvestigationController extends Controller
     {
         $comments = DB::table('inv_comment')->select('comm_uuid', 'comment_name', 'status')->get();
         return view('settings.common-issues', compact('comments'));
+    }
+
+    public function storeOfficer(Request $request)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'firstName' => 'required|string|max:255',
+            'initials' => 'nullable|string|max:10',
+            'userName' => 'required|string|unique:users,user_name|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'subjectCode' => 'nullable|string|max:50',
+            'post' => 'nullable|string|max:100',
+            'groupName' => 'required|exists:sys_user_groups,group_id',
+            'staffLevel' => 'nullable|string',
+            'phone' => 'required|string|max:15',
+            'notifySMS' => 'nullable|boolean',
+        ]);
+
+        // Create a new user
+        $user = new User();
+        $user->name = $request->firstName;
+        $user->initials = $request->initials;
+        $user->user_name = $request->userName;
+        $user->password = Hash::make($request->password); // Hash the password
+        $user->subject_code = $request->subjectCode;
+        $user->post = $request->post;
+        $user->group_id = $request->groupName; // Assuming you have a foreign key for group
+        $user->staff_level = $request->staffLevel;
+        $user->phone = $request->phone;
+        $user->notify_sms = $request->has('notifySMS'); // Convert checkbox to boolean
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->route('settings.add-officers')->with('success', 'Officer added successfully.');
     }
 }
