@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\InvestigationController;
 use App\Http\Controllers\Auth\LoginController;
-
 use App\Http\Controllers\ReceivingTypeController;
+use App\Http\Controllers\CommonIssuesController;
 
 // Redirect root to login
 Route::get('/', function () {
@@ -60,9 +59,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/receiving-types', [InvestigationController::class, 'showReceivingTypes'])->name('receiving-types');
 
-        Route::get('/common-issues', function () {
-            return view('settings.common-issues');
-        })->name('common-issues');
+        Route::get('/common-issues', [InvestigationController::class, 'showCommonIssues'])->name('common-issues');
 
         Route::get('/receiving-types-add', function () {
             return view('settings.receiving-types-add');
@@ -75,6 +72,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/settings/add-officers', [InvestigationController::class, 'storeOfficer'])->name('settings.store-officer');
 
     });
+
+    Route::post('/settings/receiving-types-add', [ReceivingTypeController::class, 'store'])->name('settings.receiving-types.store');
+
+    Route::post('/settings/common-issues', [CommonIssuesController::class, 'store'])->name('settings.common-issues.store');
+
+    Route::put('/settings/receiving-types', [ReceivingTypeController::class, 'update'])->name('settings.receiving-types');
+
+    Route::put('/settings/common-issues', [CommonIssuesController::class, 'update'])->name('settings.common-issues');
 
     // Account routes
     Route::get('/accounts', function () {

@@ -23,7 +23,12 @@
                         <tr>
                             <td>{{ $institute->institute_name }}</td>
                             <td>{{ $institute->status }}</td>
-                            <td><a href="#" class="edit-link">Edit</a></td>
+                            <td>
+                                <a href="#" class="edit-link" 
+                                   data-name="{{ $institute->institute_name }}" 
+                                   data-status="{{ $institute->status }}" 
+                                   data-id="{{ $institute->inst_uuid }}">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -31,27 +36,28 @@
         </div>
     </div>
 
-    <!-- Add/Edit Modal -->
+    <!-- Edit Modal -->
     <div class="modal" id="typeModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Add/Edit Receiving Type</h3>
+                <h3>Edit Receiving Type</h3>
                 <button class="close-modal">&times;</button>
             </div>
-            <form class="type-form">
+            <form class="type-form" action="{{ route('settings.receiving-types') }}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="typeName">Receiving Type<span class="required">*</span></label>
-                    <input type="text" id="typeName" required>
+                    <input type="text" id="typeName" name="receivingType" required>
                 </div>
                 <div class="form-group">
                     <label for="typeStatus">Status</label>
-                    <select id="typeStatus">
+                    <select id="typeStatus" name="status">
                         <option value="Active">Active</option>
-                        <option value="deactive">De-Active</option>
+                        <option value="De-active">De-Active</option>
                     </select>
                 </div>
                 <div class="form-actions">
-                    <button type="button" class="btn btn-cancel">Cancel</button>
                     <button type="submit" class="btn btn-save">Save</button>
                 </div>
             </form>

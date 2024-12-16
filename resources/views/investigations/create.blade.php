@@ -10,6 +10,7 @@
                 <select id="type" required>
                     <option value="">Select Type</option>
                     <option value="type1">විමර්ශන</option>
+                    <option value="type1">කාරණා</option>
                 </select>
             </div>
 
