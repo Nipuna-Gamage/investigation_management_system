@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('settings')->name('settings.')->group(function () {
         
         Route::get('/add-officers', [InvestigationController::class, 'addOfficers'])->name('add-officers');
+        Route::post('/add-officers', [InvestigationController::class, 'storeOfficer'])->name('store-officer');
 
         Route::get('/edit-officers', [InvestigationController::class, 'editOfficers'])->name('edit-officers');
 
@@ -70,6 +71,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/common-issues-add', function () {
             return view('settings.common-issues-add');
         })->name('common-issues-add');
+
+        Route::post('/settings/add-officers', [InvestigationController::class, 'storeOfficer'])->name('settings.store-officer');
 
     });
 
