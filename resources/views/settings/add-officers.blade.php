@@ -19,7 +19,9 @@
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        @if (!str_contains($error, 'characters'))
+                            <li>{{ $error }}</li>
+                        @endif
                     @endforeach
                 </ul>
             </div>

@@ -25,7 +25,7 @@ class UserController extends Controller
                 'firstName' => 'required|string|max:255',
                 'initials' => 'required|string|max:20',
                 'userName' => 'required|string|unique:users,user_name|max:255',
-                'password' => 'required|string|min:8|confirmed',
+                'password' => 'required|string|confirmed',
                 'subjectCode' => 'required|string|max:50',
                 'post' => 'nullable|string|max:100',
                 'groupName' => 'required|exists:sys_user_groups,group_id',
