@@ -1172,3 +1172,82 @@ footer {
 .btn-logout i {
     font-size: 14px;
 }
+
+/* Error message styling */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-danger ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.alert-danger li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.alert-danger li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #721c24;
+}
+
+.form-group.has-error input {
+    border-color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Success Popup Styling */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    display: none;
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+    animation: fadeInOut 3.5s ease-in-out;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}

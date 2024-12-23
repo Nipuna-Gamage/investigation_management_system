@@ -22,6 +22,16 @@ class User extends Authenticatable
         'user_name',
         'email',
         'password',
+        'initials',
+        'subject_code',
+        'post',
+        'group_id',
+        'staff_level',
+        'phone',
+        'notify_sms',
+        'status',
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -39,11 +49,9 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'notify_sms' => 'boolean',
+    ];
 }

@@ -15,7 +15,9 @@
                                 <label for="officerSelect">Name<span class="required">*</span></label>
                                 <select id="officerSelect" required>
                                     <option value="">Select an officer</option>
-                                    <!-- Options will be populated dynamically -->
+                                    @foreach($officers as $officer)
+                                        <option value="{{ $officer->id }}">{{ $officer->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <button type="button" class="btn btn-select">Select</button>
@@ -80,3 +82,8 @@
                 </div>
             </div>
             @endsection
+
+@section('scripts')
+<!-- Remove or comment out this line -->
+<!-- <script src="{{ asset('js/edit-officers.js') }}"></script> -->
+@endsection

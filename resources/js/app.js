@@ -1,5 +1,6 @@
 import './bootstrap';
 import { initializeSearchPerson } from './person-search';
+import './edit-officers.js';
 
 // Initialize search functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -36,5 +37,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close modal functionality
     document.querySelector('.close-modal').addEventListener('click', function() {
         typeModal.classList.remove('active');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    
+    passwordInput.addEventListener('input', function() {
+        const value = this.value;
+        let errorMessage = '';
+        
+        if (value.length < 8) {
+            errorMessage = 'Password must be at least 8 characters long';
+        }
+        
+        // Show error message if exists
+        let errorDiv = this.parentElement.querySelector('.error-message');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            this.parentElement.appendChild(errorDiv);
+        }
+        errorDiv.textContent = errorMessage;
+        
+        // Add/remove error class
+        this.parentElement.classList.toggle('has-error', errorMessage !== '');
+    });
+    
+    // Check password confirmation
+    confirmPasswordInput.addEventListener('input', function() {
+        const errorDiv = this.parentElement.querySelector('.error-message') || 
+                        document.createElement('div');
+        errorDiv.className = 'error-message';
+        
+        if (this.value !== passwordInput.value) {
+            errorDiv.textContent = 'Passwords do not match';
+            this.parentElement.classList.add('has-error');
+        } else {
+            errorDiv.textContent = '';
+            this.parentElement.classList.remove('has-error');
+        }
+        
+        if (!this.parentElement.querySelector('.error-message')) {
+            this.parentElement.appendChild(errorDiv);
+        }
     });
 });
