@@ -5,6 +5,7 @@ use App\Http\Controllers\InvestigationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ReceivingTypeController;
 use App\Http\Controllers\CommonIssuesController;
+use App\Http\Controllers\UserController;
 
 // Redirect root to login
 Route::get('/', function () {
@@ -52,8 +53,8 @@ Route::middleware('auth')->group(function () {
     // Settings routes
     Route::prefix('settings')->name('settings.')->group(function () {
         
-        Route::get('/add-officers', [InvestigationController::class, 'addOfficers'])->name('add-officers');
-        Route::post('/add-officers', [InvestigationController::class, 'storeOfficer'])->name('store-officer');
+        Route::get('/add-officers', [UserController::class, 'create'])->name('add-officers');
+        Route::post('/store-officer', [UserController::class, 'store'])->name('store-officer');
 
         Route::get('/edit-officers', [InvestigationController::class, 'editOfficers'])->name('edit-officers');
 
@@ -69,8 +70,7 @@ Route::middleware('auth')->group(function () {
             return view('settings.common-issues-add');
         })->name('common-issues-add');
 
-        Route::post('/settings/add-officers', [InvestigationController::class, 'storeOfficer'])->name('settings.store-officer');
-
+        Route::post('/store-officer', [UserController::class, 'store'])->name('store-officer');
     });
 
     Route::post('/settings/receiving-types-add', [ReceivingTypeController::class, 'store'])->name('settings.receiving-types.store');
