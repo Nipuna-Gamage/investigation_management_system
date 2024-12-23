@@ -71,6 +71,9 @@ Route::middleware('auth')->group(function () {
         })->name('common-issues-add');
 
         Route::post('/store-officer', [UserController::class, 'store'])->name('store-officer');
+
+        Route::get('/officers/{id}', [InvestigationController::class, 'getOfficer'])->name('get-officer');
+        Route::put('/officers/{id}', [InvestigationController::class, 'updateOfficer'])->name('update-officer');
     });
 
     Route::post('/settings/receiving-types-add', [ReceivingTypeController::class, 'store'])->name('settings.receiving-types.store');

@@ -1,5 +1,6 @@
 import './bootstrap';
 import { initializeSearchPerson } from './person-search';
+import './edit-officers.js';
 
 // Initialize search functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {

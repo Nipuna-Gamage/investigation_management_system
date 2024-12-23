@@ -34,7 +34,12 @@ class InvestigationController extends Controller
     public function editOfficers()
     {
         $userGroups = DB::table('sys_user_groups')->select('group_id', 'group_name')->get();
-        return view('settings.edit-officers', compact('userGroups'));
+        $officers = DB::table('users')
+            ->select('id', 'name', 'user_name', 'initials', 'subject_code', 'post', 'group_id', 'staff_level', 'phone')
+            ->where('status', 'active')
+            ->get();
+        
+        return view('settings.edit-officers', compact('userGroups', 'officers'));
     }
 
     public function showReceivingTypes()
@@ -84,5 +89,60 @@ class InvestigationController extends Controller
 
         // Redirect back with a success message
         return redirect()->route('settings.add-officers')->with('success', 'Officer added successfully.');
+    }
+
+    public function getOfficer($id)
+    {
+        try {
+            $officer = DB::table('users')
+                ->select('id', 'name', 'user_name', 'initials', 'subject_code', 'post', 'group_id', 'staff_level', 'phone')
+                ->where('id', $id)
+                ->where('status', 'active')
+                ->first();
+
+            if (!$officer) {
+                return response()->json(['error' => 'Officer not found'], 404);
+            }
+
+            return response()->json($officer);
+
+        } catch (\Exception $e) {
+            \Log::error('Error fetching officer: ' . $e->getMessage());
+            return response()->json(['error' => 'Failed to fetch officer details'], 500);
+        }
+    }
+
+    public function updateOfficer(Request $request, $id)
+    {
+        try {
+            $validated = $request->validate([
+                'userName' => 'required|string',
+                'officerName' => 'required|string',
+                'subjectCode' => 'required|string',
+                'post' => 'nullable|string',
+                'groupName' => 'required',
+                'staffLevel' => 'required|in:yes,no',
+                'phone' => 'required|string'
+            ]);
+
+            DB::table('users')
+                ->where('id', $id)
+                ->update([
+                    'user_name' => $validated['userName'],
+                    'name' => $validated['officerName'],
+                    'subject_code' => $validated['subjectCode'],
+                    'post' => $validated['post'],
+                    'group_id' => $validated['groupName'],
+                    'staff_level' => $validated['staffLevel'],
+                    'phone' => $validated['phone'],
+                    'updated_at' => now()
+                ]);
+
+            return response()->json(['message' => 'Officer updated successfully']);
+
+        } catch (\Exception $e) {
+            \Log::error('Error updating officer: ' . $e->getMessage());
+            return response()->json(['error' => 'Failed to update officer'], 500);
+        }
     }
 }

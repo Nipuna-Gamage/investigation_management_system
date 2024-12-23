@@ -21,5 +21,6 @@
             @include('layouts.partials.footer')
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html> 
